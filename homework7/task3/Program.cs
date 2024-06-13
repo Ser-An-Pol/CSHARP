@@ -37,20 +37,34 @@ int[] GenerateArray(int size, int minRange, int maxRange)
     return arr;
 }
 
+// 1-st variant
+
+// void printReverse(int[] array)
+// {
+//     printBack(array, array.Length - 1);
+// }
+
+// void printBack(int[] array, int ind)
+// {
+//     if (ind == 0)
+//     {
+//         System.Console.WriteLine(array[0]);
+//         return;
+//     }
+//     System.Console.Write($"{array[ind]} ");
+//     printBack(array, ind - 1);
+// }
+
 void printReverse(int[] array)
 {
-    printBack(array, array.Length - 1);
-}
-
-void printBack(int[] array, int ind)
-{
-    if (ind == 0)
+    if (array.Length == 1)
     {
-        System.Console.WriteLine(array[0]);
+        System.Console.Write($"{array[0]} ");
         return;
     }
-    System.Console.Write($"{array[ind]} ");
-    printBack(array, ind - 1);
+
+    printReverse(array[1..]);
+    System.Console.Write($"{array[0]} ");
 }
 
 void printArray(int[] array)
